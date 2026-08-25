@@ -1,4 +1,4 @@
-namespace MinhaApi.Tipo;
+namespace MinhaApi.Models;
 
 public class Tipo
 {

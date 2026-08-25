@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route ("api/[controller]")]
@@ -25,4 +25,42 @@ public class TipoController : ControllerBase {
 }
 
 [HttPost]
+public IActionResult Create(
+    [FromBody] Tipo tipo) {
+
+        if (!ModelState.IsValid)
+    return BadRequest(ModelState);
+
+    var criado = _service.Create(tipo);
+
+    return CreatedAtAction(
+        nameof(GetById),
+        new { id = criado.Id},
+        criado);
+    }
+
+    [HttpPut("{id}")]
+public IActionResult Update(
+    int id,
+    [FromBody] Tipo tipo)
+{
+    var atualizado =
+    _service.Update(id, produto);
+
+    if(atualizado == null)
+    return NotFound();
+
+    return Ok(atualizado);
 }
+
+[HttpDelete("{id}")]
+public IActionResult Delete(int id) {
+    var deletado = _service.Delete(id);
+
+    if(!deletado)
+    return NotFound();
+
+    return NoContent();
+  }
+}
+*/

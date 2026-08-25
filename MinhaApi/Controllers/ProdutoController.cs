@@ -2,8 +2,6 @@ using MinhaApi.Models;
 using MinhaApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
-
-
 [ApiController]
 [Route("api/[controller]")]
 public class ProdutoController : ControllerBase {
@@ -11,53 +9,55 @@ public class ProdutoController : ControllerBase {
 
     public ProdutoController(IProdutoService service) => _service = service;
 
-        [HttpGet]
-        public IActionResult GetAll() {
+    [HttpGet]
+    public IActionResult GetAll() {
            var produtos = _service.GetAll();
            return Ok(produtos);
     }
-    [HttpGet(*{id}*)]
+
+    [HttpGet("{id}")]
     public IActionResult GetById(int id) {
-    var produto = _service.GetById(id);
-    if(produto == null)
-    return NotFound();
-    return Ok(produto);
-}
-[HttPost]
-public IActionResult Create(
-    [FromBody] Produto produto)
-{
-    if (!ModelState.IsValid)
-    return BadRequest(ModelState);
+        var produto = _service.GetById(id);
+        if(produto == null)
+        return NotFound();
+        return Ok(produto);
+    }
 
-    var criado = _service.Create(produto);
+    [HttpPost]
+    public IActionResult Create(
+        [FromBody] Produto produto)
+    {
+        if (!ModelState.IsValid)
+        return BadRequest(ModelState);
 
-    return CreatedAtAction(
-        nameof(GetById),
-        new { id = criado.Id},
-        criado);
-}
-[HttpPut("{id}")]
-public IActionResult Update(
-    int id,
-    [FromBody] Produto produto)
-{
-    var atualizado =
-    _service.Update(id, produto);
+        var criado = _service.Create(produto);
 
-    if(atualizado == null)
-    return NotFound();
+        return CreatedAtAction(
+            nameof(GetById),
+            new { id = criado.Id},
+            criado);
+    }
+    [HttpPut("{id}")]
+    public IActionResult Update(
+        int id,
+        [FromBody] Produto produto)
+    {
+        var atualizado =
+        _service.Update(id, produto);
 
-    return Ok(atualizado);
-}
+        if(atualizado == null)
+        return NotFound();
 
-[HttpDelete("{id}")]
-public IActionResult Delete(int id) {
-    var deletado = _service.Delete(id);
+        return Ok(atualizado);
+    }
 
-    if(!deletado)
-    return NotFound();
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id) {
+        var deletado = _service.Delete(id);
 
-    return NoContent();
-  }
+        if(!deletado)
+        return NotFound();
+
+        return NoContent();
+    }
 }
