@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using MinhaApi.Models;
 using MinhaApi.Repositories;
 using MySqlConnector;
@@ -21,7 +22,7 @@ public class ProdutoRepository: IProdutoRepository{
         using var conn = new MySqlConnection(_connectionString);
         conn.Open();
 
-        string sql = "SELECT id, nome, preco, estoque FROM produtos";
+        string sql = "SELECT id, nome, preco, estoque, ativo FROM produtos";
         using var cmd = new MySqlCommand(sql, conn);
         using var reader = cmd.ExecuteReader();
 
@@ -40,19 +41,38 @@ public class ProdutoRepository: IProdutoRepository{
     public Produto? GetById(int id)
        => _db.FirstOrDefault(p => p.Id == id);
 
-    public void Add(Produto p)
-    {
-        p.Id = _db.Any() ? _db.Max(x => x.Id) + 1 : 1;
-     }
+    public void Add(Produto p) {
+        using var conn = new MySqlConnection(_connectionString);
+        conn.Open();
+        string sql = @"INSERT INTO produtos (nome, preco, estoque, ativo)
+         VALUES (@Nome, @Preco, @Estoque, @Ativo);
+          SELECT LAST_INSERT_ID();";
 
+    using var cmd = new MySqlCommand(sql, conn);
+    cmd.Parameters.AddWithValue("@Nome", p.Nome);
+    cmd.Parameters.AddWithValue("@Preco", p.Preco);
+    cmd.Parameters.AddWithValue("@Estoque", p.Estoque);
+    cmd.Parameters.AddWithValue("@Ativo", p.Ativo);
+
+    var idGerado = cmd.ExecuteScalar();
+    p.Id = Convert.ToInt32(idGerado);
+}
+
+        
   public void Update(Produto p)
   {
       var i = _db.FindIndex(x => x.Id == p.Id);
       if (i >= 0) _db[i] = p;
   }
 
-  public void Delete(int id)
-      => _db.RemoveAll(p => p.Id == id);
+  public void Delete(int id) {
+        using var conn = new MySqlConnection(_connectionString);
+        conn.Open();
+        string  sql = "DELETE FROM PRODUTOS WHERE id = @id";
+        using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.ExecuteNonQuery();
+    }
 }
 
 
