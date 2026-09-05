@@ -59,10 +59,18 @@ public class ProdutoRepository: IProdutoRepository{
 }
 
         
-  public void Update(Produto p)
-  {
-      var i = _db.FindIndex(x => x.Id == p.Id);
-      if (i >= 0) _db[i] = p;
+  public void Update(Produto p) {
+    using var conn = new MySqlConnection(_connectionString);
+    conn.Open();
+    string sql = @"UPDATE produtos SET nome=@Nome, preco=@Preco, estoque=@Estoque, ativo=@Ativo
+                   WHERE id=@Id";
+    using var cmd = new MySqlCommand(sql, conn);
+    cmd.Parameters.AddWithValue("@Nome", p.Nome);
+    cmd.Parameters.AddWithValue("@Preco", p.Preco);
+    cmd.Parameters.AddWithValue("@Estoque", p.Estoque);
+    cmd.Parameters.AddWithValue("@Ativo", p.Ativo);
+    cmd.Parameters.AddWithValue("@Id", p.Id);
+    cmd.ExecuteNonQuery();
   }
 
   public void Delete(int id) {

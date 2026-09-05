@@ -13,9 +13,19 @@ builder.Services.AddScoped<
     ProdutoRepository>();
 
 // ✅ Registra a Service
+    builder.Services.AddScoped<
+    IClienteRepository,
+    ClienteRepository>();
+
+// ✅ Registra a Service
 builder.Services.AddScoped<
     IProdutoService,
     ProdutoService>();
+    
+// ✅ Registra a Service
+builder.Services.AddScoped<
+    IClienteService,
+    ClienteService>();
 
 var app = builder.Build();
 
