@@ -10,6 +10,8 @@ public class Venda
 
     public decimal Valor {get; set;}
 
+    public int Quantidade {get; set;}
+
     public int Produto_Id {get; set;}
 
     public bool Ativo {get; set;}

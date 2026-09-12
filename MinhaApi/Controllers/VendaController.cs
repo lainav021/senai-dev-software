@@ -9,11 +9,7 @@ public class VendaController : ControllerBase {
 
     public VendaController(IVendaService service) => _service = service;
 
-    [HttpGet]
-    public IActionResult GetAll() {
-           var vendas = _service.GetAll();
-           return Ok(vendas);
-    }
+    
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id) {
@@ -37,19 +33,6 @@ public class VendaController : ControllerBase {
             new { id = criado.Id},
             criado);
     }
-    [HttpPut("{id}")]
-    public IActionResult Update(
-        int id,
-        [FromBody] Venda venda)
-    {
-        var atualizado =
-        _service.Update(id, venda);
-
-        if(atualizado == null)
-        return NotFound();
-
-        return Ok(atualizado);
-    }
-
+   
     
 }
