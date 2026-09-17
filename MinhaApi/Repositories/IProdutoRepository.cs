@@ -8,5 +8,6 @@ public interface IProdutoRepository
     Produto? GetById(int id);
     void Add(Produto produto);
     void Update(Produto produto);
+    void UpddateEstoque(int id, int estoque);
     void Delete(int id);
 }

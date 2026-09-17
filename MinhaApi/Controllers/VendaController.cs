@@ -9,15 +9,20 @@ public class VendaController : ControllerBase {
 
     public VendaController(IVendaService service) => _service = service;
 
+ [HttpGet]
+    public IActionResult GetAll() {
+           var produtos = _service.GetAll();
+           return Ok(produtos);
+    }
     
 
-    [HttpGet("{id}")]
-    public IActionResult GetById(int id) {
-        var venda = _service.GetById(id);
-        if(venda == null)
-        return NotFound();
-        return Ok(venda);
-    }
+     [HttpGet("{id}")]
+     public IActionResult GetById(int id) {
+         var venda = _service.GetById(id);
+         if(venda == null)
+         return NotFound();
+         return Ok(venda);
+     }
 
     [HttpPost]
     public IActionResult Create(
@@ -28,10 +33,8 @@ public class VendaController : ControllerBase {
 
         var criado = _service.Create(venda);
 
-        return CreatedAtAction(
-            nameof(GetById),
-            new { id = criado.Id},
-            criado);
+
+        return Ok(criado);
     }
    
     

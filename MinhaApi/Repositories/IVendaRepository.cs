@@ -7,6 +7,6 @@ public interface IVendaRepository
     
     Venda? GetById(int id);
     void Add(Venda venda);
-    
+    IEnumerable<Venda> GetAll();
     
 }

@@ -39,5 +39,12 @@ private readonly IProdutoRepository _produtoRepo;
         var valorTotal = produto.Preco * venda.Quantidade;
         return (int)valorTotal;
     }
+public IEnumerable<Venda> GetAll() {
+        return _repo.GetAll();
+    }
+
+    public Venda? GetById(int id) {
+        return _repo.GetById(id);
+    }
 
 }
