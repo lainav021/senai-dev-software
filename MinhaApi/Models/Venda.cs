@@ -16,4 +16,6 @@ public class Venda
 
     public bool Ativo {get; set;}
     = true;
+    
+    
 }

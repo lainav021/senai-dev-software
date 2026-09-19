@@ -53,7 +53,7 @@ public IEnumerable<Venda> GetAll() {
     {
         using var conn = new MySqlConnection(_connectionString);
         conn.Open();
-        string sql = "SELECT id, valor, data_v, cliente_id, produto_id, ativo FROM venda WHERE id=@Id";
+        string sql = "SELECT clientes.nome AS Cliente, produtos.nome AS Produto, venda.valor As Valor, data_v AS Venda";
         using var cmd = new MySqlCommand(sql, conn);
         cmd.Parameters.AddWithValue("@Id", id);
         using var reader = cmd.ExecuteReader();
