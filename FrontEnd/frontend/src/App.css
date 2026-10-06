@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+:root {
+  --preto: #07070a;
+  --preto-2: #0d0d12;
+  --card: #111117;
+  --card-hover: #171720;
+
+  --roxo: #7c3aed;
+  --roxo-claro: #a78bfa;
+  --roxo-forte: #8b5cf6;
+
+  --texto: #f5f3ff;
+  --texto-secundario: #a1a1aa;
+  --texto-fraco: #71717a;
+
+  --borda: rgba(139, 92, 246, 0.18);
+  --borda-hover: rgba(139, 92, 246, 0.45);
+
+  --sombra: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 70% 0%,
+      rgba(124, 58, 237, 0.13),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(124, 58, 237, 0.06),
+      transparent 30%
+    ),
+    var(--preto);
+
+  color: var(--texto);
+}
+
+/* =========================================================
+   ÁREA PRINCIPAL
+   ========================================================= */
+
+#root {
+  min-height: 100vh;
+}
+
+/* Caso exista um container principal */
+
+main {
+  min-height: 100vh;
+  padding: 45px;
+}
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+h1 {
+  position: relative;
+
+  margin-bottom: 35px;
+
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+
+  color: var(--texto);
+}
+
+/* Pequeno detalhe roxo abaixo do título */
+
+h1::after {
+  content: '';
+
+  display: block;
+
+  width: 45px;
+  height: 4px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    var(--roxo),
+    var(--roxo-claro)
+  );
+
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+}
+
+h2 {
+  margin-bottom: 25px;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  color: var(--texto);
+}
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+form {
+  position: relative;
+
+  width: 100%;
+  max-width: 950px;
+
+  margin-bottom: 35px;
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.025),
+      rgba(124,58,237,0.025)
+    ),
+    var(--card);
+
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+
+  box-shadow: var(--sombra);
+
+  transition: 0.3s ease;
+}
+
+form:hover {
+  border-color: var(--borda-hover);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(124, 58, 237, 0.05);
+}
+
+/* Linha superior decorativa */
+
+form::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 25px;
+  right: 25px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(167, 139, 250, 0.5),
+    transparent
+  );
+}
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+form > div {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: var(--texto-secundario);
+}
+
+input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #09090d;
+
+  color: var(--texto);
+
+  font-size: 14px;
+
+  transition: 0.25s ease;
+}
+
+input::placeholder {
+  color: var(--texto-fraco);
+}
+
+input:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+input:focus {
+  border-color: var(--roxo);
+
+  background: #0b0a10;
+
+  box-shadow:
+    0 0 0 3px rgba(124, 58, 237, 0.13),
+    0 0 20px rgba(124, 58, 237, 0.08);
+}
+
+/* =========================================================
+   BOTÃO CADASTRAR
+   ========================================================= */
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 145px;
+
+  padding: 13px 25px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #6d28d9,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 20px rgba(109, 40, 217, 0.25);
+
+  transition: all 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 28px rgba(109, 40, 217, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.15);
+
+  filter: brightness(1.08);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+form p {
+  margin-bottom: 18px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.07);
+
+  color: #fca5a5 !important;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   LISTAS DE CLIENTES E PRODUTOS
+   ========================================================= */
+
+ul {
+  width: 100%;
+  max-width: 950px;
+
+  list-style: none;
+
+  margin-bottom: 30px;
+}
+
+li {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 65px;
+
+  margin-bottom: 10px;
+  padding: 17px 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 0.035),
+      transparent
+    ),
+    var(--card);
+
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+
+  color: var(--texto-secundario);
+
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+li:hover {
+  transform: translateX(4px);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 0.10),
+      transparent
+    ),
+    var(--card-hover);
+
+  border-color: var(--borda-hover);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+li strong {
+  color: var(--texto);
+
+  font-weight: 600;
+}
+
+/* Detalhe roxo lateral */
+
+li::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+
+  width: 3px;
+
+  border-radius: 0 5px 5px 0;
+
+  background: var(--roxo);
+
+  opacity: 0;
+
+  transition: 0.25s ease;
+}
+
+li:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   TEXTO DE LISTA VAZIA / CARREGANDO
+   ========================================================= */
+
+body > p,
+#root > p {
+  color: var(--texto-secundario);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--preto);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27202f;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--roxo);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  main {
+    padding: 25px 18px;
+  }
+
+  h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  form {
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 16px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  main {
+    padding: 20px 14px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  input {
+    padding: 13px;
+  }
+}
+
