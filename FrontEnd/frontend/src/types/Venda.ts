@@ -8,4 +8,4 @@ export interface Venda {
   
 }
 
-export type NovaVenda = Omit<Venda, 'clienteId' | 'produtoId'| 'quantidade'>
+export type NovaVenda = Omit<Venda, 'id' | 'valor_total'| 'data_venda'>

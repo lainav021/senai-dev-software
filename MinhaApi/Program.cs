@@ -88,3 +88,39 @@ app.Run();
 //FOREIGN KEY (id_produtoF) REFERENCES produtos(id)
  
 //);
+
+//CREATE DATABASE minha_api_db;
+//USE minha_api_db;
+//CREATE TABLE IF NOT EXISTS clientes (
+//id INT PRIMARY KEY AUTO_INCREMENT,
+//nome VARCHAR(500),
+//email VARCHAR(100),
+//cpf VARCHAR(12),
+//ativo TINYINT(1) NOT NULL DEFAULT 1
+//);
+
+//SELECT * FROM clientes;
+
+
+/*USE minha_api_db;
+CREATE TABLE IF NOT EXISTS produtos (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(500),
+estoque INT,
+preco INT,
+ativo TINYINT(1) NOT NULL DEFAULT 1
+);
+
+SELECT * FROM produtos;*/
+
+/*CREATE DATABASE minha_api_db;
+USE minha_api_db;
+CREATE TABLE IF NOT EXISTS venda (
+id INT PRIMARY KEY AUTO_INCREMENT,
+cliente_Id INT,
+produto_Id  INT,
+cpf VARCHAR(12),
+ativo TINYINT(1) NOT NULL DEFAULT 1
+);
+
+SELECT * FROM clientes;*/

@@ -21,7 +21,7 @@ function VendaForm({ onVendaCriada }: Props) {
         clienteId: Number (clienteId),
         produtoId: Number(produtoId),
         quantidade: Number(quantidade),
-        ativo: true
+       
       })
       setClienteId('')
     
