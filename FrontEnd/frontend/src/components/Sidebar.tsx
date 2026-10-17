@@ -70,7 +70,23 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `sidebar-link ${isActive ? 'active' : ''}`
             }
+            
           >
+            <NavLink
+            to="/vendas"
+            onClick={() => setAberto(false)}
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6" />
+              <circle cx="10" cy="21" r="1" />
+              <circle cx="18" cy="21" r="1" />
+            </svg>
+
+            <span>Vendas</span>
+          </NavLink>
             <svg viewBox="0 0 24 24">
               <circle cx="12" cy="8" r="3" />
               <path d="M5 19c.8-3 3.1-4.5 7-4.5s6.2 1.5 7 4.5" />
@@ -88,4 +104,6 @@ export default function Sidebar() {
       </aside>
     </>
   )
+
+  
 }

@@ -113,14 +113,29 @@ ativo TINYINT(1) NOT NULL DEFAULT 1
 
 SELECT * FROM produtos;*/
 
-/*CREATE DATABASE minha_api_db;
+/*
+
 USE minha_api_db;
 CREATE TABLE IF NOT EXISTS venda (
 id INT PRIMARY KEY AUTO_INCREMENT,
 cliente_Id INT,
 produto_Id  INT,
-cpf VARCHAR(12),
+quantidade INT,
+data_v DATE,
+valor DECIMAL(6,2),
 ativo TINYINT(1) NOT NULL DEFAULT 1
 );
 
-SELECT * FROM clientes;*/
+SELECT * FROM venda;*/
+
+/*
+CREATE TABLE IF NOT EXISTS departamento(
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL UNIQUE,
+descricao VARCHAR(200),
+id_fornecedores INT,
+ativo TINYINT(1) NOT NULL DEFAULT 1,
+FOREIGN KEY (id_fornecedores) REFERENCES fornecedores(id)
+);
+
+SELECT * FROM departamento;*/
