@@ -20,9 +20,9 @@ function VendaList({ vendas, loading }: Props) {
         <li key={v.id}>
           <strong>Venda{v.id}</strong>
           {' — '}
-          Cliente: {v.clienteId}
+          Cliente: {v.cliente_Id}
           {' — '}
-          Produto: {v.produtoId}
+          Produto: {v.produto_Id}
           {' — '}
           Quantidade: {v.quantidade}
           {' — '}

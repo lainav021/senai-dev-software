@@ -42,9 +42,7 @@ html {
 
 body {
   min-height: 100vh;
-
   font-family: 'Inter', sans-serif;
-
   color: var(--text);
 
   background:
@@ -76,10 +74,8 @@ textarea {
 
 .menu-toggle {
   position: fixed;
-
   top: 22px;
   left: 22px;
-
   z-index: 900;
 
   width: 43px;
@@ -89,11 +85,9 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 5px;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
-
   border-radius: 11px;
 
   background: rgba(15, 15, 19, 0.82);
@@ -103,8 +97,7 @@ textarea {
 
   cursor: pointer;
 
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 
   transition:
     transform 0.3s ease,
@@ -117,7 +110,6 @@ textarea {
   transform: translateY(-1px);
 
   border-color: rgba(139, 92, 246, 0.35);
-
   background: rgba(25, 22, 32, 0.95);
 
   box-shadow:
@@ -130,7 +122,6 @@ textarea {
   height: 2px;
 
   border-radius: 3px;
-
   background: #c4b5fd;
 
   transition: var(--transition);
@@ -142,10 +133,8 @@ textarea {
 
 .sidebar {
   position: fixed;
-
   top: 0;
   left: 0;
-
   z-index: 1100;
 
   width: 275px;
@@ -165,8 +154,7 @@ textarea {
 
   border-right: 1px solid rgba(255, 255, 255, 0.07);
 
-  box-shadow:
-    20px 0 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.45);
 
   transform: translateX(-105%);
 
@@ -184,9 +172,7 @@ textarea {
 
 .sidebar-overlay {
   position: fixed;
-
   inset: 0;
-
   z-index: 1050;
 
   background: rgba(0, 0, 0, 0.62);
@@ -224,14 +210,12 @@ textarea {
 .brand {
   display: flex;
   align-items: center;
-
   gap: 11px;
 
   color: var(--text);
 
   font-size: 16px;
   font-weight: 600;
-
   letter-spacing: -0.2px;
 }
 
@@ -257,8 +241,7 @@ textarea {
   font-size: 14px;
   font-weight: 700;
 
-  box-shadow:
-    0 0 25px rgba(139, 92, 246, 0.20);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.20);
 }
 
 .sidebar-close {
@@ -270,11 +253,9 @@ textarea {
   justify-content: center;
 
   border: 1px solid var(--border);
-
   border-radius: 8px;
 
   background: transparent;
-
   color: var(--text-muted);
 
   font-size: 22px;
@@ -287,7 +268,6 @@ textarea {
 
 .sidebar-close:hover {
   color: var(--text);
-
   border-color: var(--border-hover);
 
   background: rgba(139, 92, 246, 0.08);
@@ -312,14 +292,12 @@ textarea {
 
   font-size: 9px;
   font-weight: 600;
-
   letter-spacing: 1.4px;
 }
 
 /* =========================================================
    LINKS
    ========================================================= */
-
 .sidebar-link {
   position: relative;
 
@@ -330,15 +308,12 @@ textarea {
   height: 47px;
 
   margin-bottom: 5px;
-
   padding: 0 13px;
-
   gap: 13px;
 
   border-radius: 9px;
 
   color: var(--text-secondary);
-
   text-decoration: none;
 
   font-size: 13px;
@@ -384,8 +359,7 @@ textarea {
 
   background: var(--purple);
 
-  box-shadow:
-    0 0 10px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
 }
 
 /* =========================================================
@@ -399,11 +373,8 @@ textarea {
   flex-shrink: 0;
 
   fill: none;
-
   stroke: currentColor;
-
   stroke-width: 1.6;
-
   stroke-linecap: round;
   stroke-linejoin: round;
 
@@ -429,7 +400,6 @@ textarea {
 
   display: flex;
   align-items: center;
-
   gap: 9px;
 
   padding: 15px 10px;
@@ -451,17 +421,12 @@ textarea {
 
   background: var(--purple);
 
-  box-shadow:
-    0 0 10px rgba(139, 92, 246, 0.75);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.75);
 }
 
 /* =========================================================
    CONTEÚDO PRINCIPAL
    ========================================================= */
-
-/*
-   Não depende de nenhuma alteração no ProdutosPage.
-*/
 
 body > #root {
   min-height: 100vh;
@@ -483,7 +448,6 @@ h1 {
 
   font-size: 32px;
   font-weight: 700;
-
   letter-spacing: -1px;
 }
 
@@ -502,7 +466,6 @@ form {
   width: min(920px, calc(100% - 40px));
 
   margin: 30px auto;
-
   padding: 30px;
 
   background:
@@ -513,14 +476,12 @@ form {
     );
 
   border: 1px solid var(--border);
-
   border-radius: 16px;
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 
   transition:
     border-color 0.3s ease,
@@ -566,15 +527,12 @@ input {
   padding: 0 14px;
 
   border: 1px solid rgba(255, 255, 255, 0.07);
-
   border-bottom-color: rgba(139, 92, 246, 0.28);
-
   border-radius: 8px;
 
   outline: none;
 
   background: rgba(7, 7, 10, 0.68);
-
   color: var(--text);
 
   font-size: 13px;
@@ -614,7 +572,6 @@ form button {
   padding: 0 22px;
 
   border: 1px solid rgba(168, 85, 247, 0.35);
-
   border-radius: 8px;
 
   background:
@@ -631,8 +588,7 @@ form button {
 
   cursor: pointer;
 
-  box-shadow:
-    0 8px 22px rgba(124, 58, 237, 0.18);
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.18);
 
   transition:
     transform 0.3s ease,
@@ -650,8 +606,7 @@ form button:hover:not(:disabled) {
       #a855f7
     );
 
-  box-shadow:
-    0 10px 30px rgba(139, 92, 246, 0.30);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.30);
 }
 
 form button:active:not(:disabled) {
@@ -660,7 +615,6 @@ form button:active:not(:disabled) {
 
 form button:disabled {
   opacity: 0.5;
-
   cursor: not-allowed;
 }
 
@@ -670,11 +624,9 @@ form button:disabled {
 
 form p {
   margin-bottom: 17px;
-
   padding: 10px 12px;
 
   border: 1px solid rgba(239, 68, 68, 0.18);
-
   border-radius: 7px;
 
   background: rgba(239, 68, 68, 0.05);
@@ -704,14 +656,11 @@ li {
   justify-content: space-between;
 
   margin-bottom: 7px;
-
   padding: 0 18px;
 
-  background:
-    rgba(18, 18, 23, 0.70);
+  background: rgba(18, 18, 23, 0.70);
 
   border: 1px solid var(--border);
-
   border-radius: 10px;
 
   color: var(--text-secondary);
@@ -731,121 +680,10 @@ li:hover {
   transform: translateY(-1px);
 
   border-color: var(--border-hover);
-
   background: var(--card-hover);
 }
 
 li strong {
   color: var(--text);
-
   font-weight: 600;
 }
-
-/* =========================================================
-   TEXTO DE CARREGAMENTO / LISTA VAZIA
-   ========================================================= */
-
-form + p,
-ul + p {
-  width: min(920px, calc(100% - 40px));
-
-  margin: 15px auto;
-
-  padding: 15px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.02);
-
-  color: var(--text-muted);
-
-  font-size: 12px;
-
-  text-align: center;
-}
-
-/* =========================================================
-   SELEÇÃO DE TEXTO
-   ========================================================= */
-
-::selection {
-  background: rgba(139, 92, 246, 0.35);
-
-  color: white;
-}
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0d;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #27232f;
-
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3b3150;
-}
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-  .menu-toggle {
-    top: 15px;
-    left: 15px;
-  }
-
-  h1 {
-    font-size: 27px;
-  }
-
-  form {
-    width: calc(100% - 28px);
-
-    padding: 22px 18px;
-  }
-
-  ul {
-    width: calc(100% - 28px);
-  }
-
-  li {
-    min-height: 62px;
-
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 5px;
-
-    padding: 12px 15px;
-  }
-}
-
-@media (max-width: 450px) {
-
-  .sidebar {
-    width: 250px;
-  }
-
-  form {
-    padding: 20px 15px;
-  }
-}
-

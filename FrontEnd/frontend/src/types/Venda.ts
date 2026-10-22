@@ -1,7 +1,7 @@
 export interface Venda {
     id: number
-  clienteId: number
-  produtoId: number
+  cliente_Id: number
+  produto_Id: number
   valor_total: number
   quantidade: number
   data_venda: Date

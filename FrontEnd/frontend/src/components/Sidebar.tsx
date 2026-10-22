@@ -63,15 +63,17 @@ export default function Sidebar() {
 
             <span>Produtos</span>
           </NavLink>
-
+          <div className="sidebar-menu"></div>
           <NavLink
             to="/clientes"
+            
             onClick={() => setAberto(false)}
             className={({ isActive }) =>
               `sidebar-link ${isActive ? 'active' : ''}`
             }
             
           >
+            
             <NavLink
             to="/vendas"
             onClick={() => setAberto(false)}
