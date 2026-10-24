@@ -1,4 +1,5 @@
 export interface Venda {
+  valor: any
     id: number
   cliente_Id: number
   produto_Id: number

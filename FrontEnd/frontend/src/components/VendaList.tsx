@@ -26,7 +26,7 @@ function VendaList({ vendas, loading }: Props) {
           {' — '}
           Quantidade: {v.quantidade}
           {' — '}
-          R$ {v.valor_total.toFixed(2)}
+          R$ {v.valor.toFixed(2)}
         </li>
       ))}
     </ul>
