@@ -687,3 +687,132 @@ li strong {
   color: var(--text);
   font-weight: 600;
 }
+
+/* =========================================
+   LOGIN — PRETO E ROXO
+   ========================================= */
+
+body:has(#email):has(#senha) {
+  min-height: 100vh;
+  background: #09090d !important;
+}
+
+body:has(#email):has(#senha) #root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(139, 92, 246, 0.16),
+      transparent 42%
+    ),
+    #09090d;
+}
+
+body:has(#email):has(#senha) #root > div {
+  width: 100% !important;
+  max-width: 420px !important;
+  margin: 0 !important;
+  padding: 34px !important;
+
+  background: linear-gradient(145deg, #191720, #101014);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 18px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+body:has(#email):has(#senha) h1 {
+  margin: 0 0 26px !important;
+  color: #f5f3ff !important;
+  text-align: center;
+  font-size: 28px !important;
+}
+
+body:has(#email):has(#senha) form {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body:has(#email):has(#senha) form:hover {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body:has(#email):has(#senha) form label {
+  display: block;
+  margin: 0 0 8px !important;
+  color: #d4d0dc !important;
+  font-size: 12px;
+}
+
+body:has(#email):has(#senha) form input {
+  display: block;
+  width: 100% !important;
+  height: 46px !important;
+  margin: 0 0 20px !important;
+  padding: 0 12px !important;
+
+  color: #f5f3ff !important;
+  background: #0b0b10 !important;
+
+  border: 1px solid #393044 !important;
+  border-radius: 8px !important;
+  outline: none;
+}
+
+body:has(#email):has(#senha) form input:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.13) !important;
+}
+
+body:has(#email):has(#senha) form button {
+  width: 100% !important;
+  height: 46px !important;
+  margin: 4px 0 0 !important;
+
+  color: white !important;
+  background: linear-gradient(135deg, #7c3aed, #9333ea) !important;
+
+  border: 1px solid rgba(196, 181, 253, 0.2) !important;
+  border-radius: 9px !important;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body:has(#email):has(#senha) form button:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+body:has(#email):has(#senha) form p {
+  margin: 0 0 18px !important;
+  padding: 11px !important;
+
+  color: #fca5a5 !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  border-radius: 8px !important;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  body:has(#email):has(#senha) #root {
+    padding: 16px;
+  }
+
+  body:has(#email):has(#senha) #root > div {
+    padding: 25px 20px !important;
+  }
+}

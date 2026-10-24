@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api' // ← mantenha a sua porta
+  baseURL: 'http://localhost:5165/api' // ← mantenha a sua porta
 })
 
 api.interceptors.request.use(config => {

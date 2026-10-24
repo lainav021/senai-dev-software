@@ -4,6 +4,7 @@ import { vendaService } from '../services/vendaService'
 import VendaForm from '../components/VendaForm'
 import VendaList from '../components/VendaList'
 
+
 function VendasPage() {
   const [vendas, setVendas] = useState<Venda[]>([])
   const [loading, setLoading] = useState(false)

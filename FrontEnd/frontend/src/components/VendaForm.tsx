@@ -49,25 +49,42 @@ function VendaForm({ onVendaCriada }: Props) {
       return
     }
 
-    if (quantidade < 1) {
-      setErro('A quantidade deve ser pelo menos 1.')
+    if (!Number.isInteger(quantidade) || quantidade < 1) {
+      setErro('A quantidade deve ser um número inteiro maior que zero.')
       return
     }
 
     try {
       setLoading(true)
 
+      const produtoSelecionado = produtos.find(
+        produto => produto.id === Number(produto_Id)
+      )
+
+      if (!produtoSelecionado) {
+        setErro('Não foi possível encontrar o produto selecionado.')
+        return
+      }
+
+      const valorTotal = Number(produtoSelecionado.preco) * quantidade
+
+      if (!Number.isFinite(valorTotal) || valorTotal < 0) {
+        setErro('O preço do produto é inválido.')
+        return
+      }
+
       await vendaService.criar({
         cliente_Id: Number(cliente_Id),
         produto_Id: Number(produto_Id),
-        quantidade: quantidade
+        quantidade,
+        valor: valorTotal
       })
 
       setClienteId('')
       setProdutoId('')
       setQuantidade(1)
 
-      onVendaCriada()
+      await onVendaCriada()
     } catch {
       setErro('Erro na venda. Verifique os dados e tente novamente.')
     } finally {
@@ -146,7 +163,7 @@ function VendaForm({ onVendaCriada }: Props) {
 
       <button
         type="submit"
-        disabled={loading || carregandoDados}
+        disabled={loading || carregandoDados || produtos.length === 0 || clientes.length === 0}
       >
         {loading ? 'Salvando...' : 'Realizar Venda'}
       </button>
