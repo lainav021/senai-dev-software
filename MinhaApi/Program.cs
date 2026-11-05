@@ -45,6 +45,11 @@ builder.Services.AddScoped<
     IDepartamentoRepository,
     DepartamentoRepository>();
 
+    // ✅ Registra o Repository
+builder.Services.AddScoped<
+    IDashboardRepository,
+    DashboardRepository>();
+
 // ✅ Registra a Service
 builder.Services.AddScoped<
     IProdutoService,
@@ -70,6 +75,11 @@ builder.Services.AddScoped<
     IDepartamentoService,
     DepartamentoService>();
 
+        // ✅ Registra a Service
+builder.Services.AddScoped<
+    IDashboardService,
+    DashboardService>();
+
     // ===== JWT (antes do builder.Build()) =====
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 
@@ -91,6 +101,7 @@ builder.Services
 // ===== Injeção de Dependência =====
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 
 var app = builder.Build();
 
@@ -173,3 +184,19 @@ FOREIGN KEY (id_fornecedores) REFERENCES fornecedores(id)
 );
 
 SELECT * FROM departamento;*/
+
+
+/*CREATE TABLE IF NOT EXISTS usuarios (
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    nome       VARCHAR(100) NOT NULL,
+    email      VARCHAR(150) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL,
+    ativo      TINYINT(1)   NOT NULL DEFAULT 1
+
+);
+
+INSERT INTO usuarios (nome, email, senha_hash)
+VALUES ('Admin SENAI', '@senadminai.com',
+        '$2a$11$abcO.oi2PyelXSsn1FA3B.KfMRdRfpabbj.swdW45xXv2FIjEF1KK');
+SELECT * FROM usuarios; 
+*/
