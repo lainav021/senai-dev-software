@@ -3,11 +3,11 @@ import { dashboardService } from '../services/dashboardService'
 import type { DashboardResumo, VendasPorDia, TopProduto,
          UltimaVenda, ProdutoEstoqueBaixo } from '../types/Dashboard'
 import { formatarMoeda } from '../Utils/Formatadores'
-import CardResumo from '../components/dashboard/CardResumo'
-import GraficoVendas from '../components/dashboard/GraficoVendas'
-import TopProdutos from '../components/dashboard/TopProdutos'
-import UltimasVendas from '../components/dashboard/UltimasVendas'
-import EstoqueBaixo from '../components/dashboard/EstoqueBaixo'
+import CardResumo from '../components/Dashboard/CardResumo'
+import GraficoVendas from '../components/Dashboard/GraficosVendas'
+import TopProdutos from '../components/Dashboard/TopProdutos'
+import UltimasVendas from '../components/Dashboard/UltimasVendas'
+import EstoqueBaixo from '../components/Dashboard/EstoqueBaixo'
 
 function DashboardPage() {
   const [dias, setDias] = useState(30)
