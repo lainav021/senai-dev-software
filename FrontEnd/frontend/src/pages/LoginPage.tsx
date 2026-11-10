@@ -11,8 +11,14 @@ function LoginPage() {
   const { login, isAuthenticated } = useAuth()
   const navigate = useNavigate()
 
+// antes: navigate('/produtos')
+navigate('/dashboard')
+
+// antes: <Navigate to="/produtos" replace />
+if (isAuthenticated) return <Navigate to="/dashboard" replace />
+
   // Já logado? Não precisa ver o login
-  if (isAuthenticated) return <Navigate to="/produtos" replace />
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

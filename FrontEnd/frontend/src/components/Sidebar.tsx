@@ -33,9 +33,7 @@ export default function Sidebar() {
       )}
 
       {/* Sidebar */}
-      <aside
-        className={`sidebar ${aberto ? 'sidebar-open' : ''}`}
-      >
+      <aside className={`sidebar ${aberto ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
           <div className="brand">
             <div className="brand-icon">M</div>
@@ -59,17 +57,24 @@ export default function Sidebar() {
           </span>
 
           <NavLink
+            to="/dashboard"
+            onClick={fecharMenu}
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }
+          >
+            <span>📊</span>
+            <span>Dashboard</span>
+          </NavLink>
+
+          <NavLink
             to="/produtos"
             onClick={fecharMenu}
             className={({ isActive }) =>
               `sidebar-link ${isActive ? 'active' : ''}`
             }
           >
-            <svg viewBox="0 0 24 24">
-              <path d="M4 5h16v14H4z" />
-              <path d="M8 9h8" />
-              <path d="M8 13h5" />
-            </svg>
+            <span>📦</span>
             <span>Produtos</span>
           </NavLink>
 
@@ -80,10 +85,7 @@ export default function Sidebar() {
               `sidebar-link ${isActive ? 'active' : ''}`
             }
           >
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="3" />
-              <path d="M5 19c.8-3 3.1-4.5 7-4.5s6.2 1.5 7 4.5" />
-            </svg>
+            <span>👤</span>
             <span>Clientes</span>
           </NavLink>
 
@@ -94,11 +96,7 @@ export default function Sidebar() {
               `sidebar-link ${isActive ? 'active' : ''}`
             }
           >
-            <svg viewBox="0 0 24 24">
-              <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6" />
-              <circle cx="10" cy="21" r="1" />
-              <circle cx="18" cy="21" r="1" />
-            </svg>
+            <span>🛒</span>
             <span>Vendas</span>
           </NavLink>
         </nav>
@@ -128,7 +126,3 @@ export default function Sidebar() {
     </>
   )
 }
-
-<><NavLink to="/dashboard" style={getLinkStyle}>
-  📊 Dashboard
-</NavLink><NavLink to="/produtos" style={getLinkStyle}>📦 Produtos</NavLink><NavLink to="/clientes" style={getLinkStyle}>👤 Clientes</NavLink><NavLink to="/vendas" style={getLinkStyle}>🛒 Vendas</NavLink></>

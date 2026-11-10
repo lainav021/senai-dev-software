@@ -7,6 +7,7 @@ import ProdutosPage from './pages/ProdutosPage'
 import ClientesPage from './pages/ClientesPage'
 import VendasPage from './pages/VendasPage'
 import './App.css'
+import DashboardPage from './pages/DashboardPage'
 
 
 function Layout() {
@@ -16,8 +17,16 @@ function Layout() {
       {isAuthenticated && <Sidebar />}
       <main style={{ flex: 1, padding: '24px' }}>
         <Routes>
+          import DashboardPage from './pages/DashboardPage'
+
+// "/" agora redireciona para o dashboard
+<Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+<Route path="/dashboard" element={
+  <ProtectedRoute><DashboardPage /></ProtectedRoute>
+} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<Navigate to="/produtos" replace />} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/produtos" element={
             <ProtectedRoute><ProdutosPage /></ProtectedRoute>
           } />
