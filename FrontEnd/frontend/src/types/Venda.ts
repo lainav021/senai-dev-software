@@ -5,11 +5,11 @@ export interface Venda {
   produto_Id: number
   quantidade: number
   valor: number
-  valor_total: number
-  data_venda: Date
+  data_v: Date
 }
 
 export type NovaVenda = Omit<
   Venda,
-  'id' | 'valor_total' | 'data_venda'
+  'id' | 'valor' | 'data_v'
 >
+

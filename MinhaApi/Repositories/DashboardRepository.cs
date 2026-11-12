@@ -13,9 +13,9 @@ public class DashboardRepository : IDashboardRepository
         using var cmd = new MySqlCommand(@"
             SELECT
               (SELECT COUNT(*) FROM venda
-                 WHERE data_venda >= @Inicio) AS total_vendas,
-              (SELECT COALESCE(SUM(valor_total), 0) FROM venda
-                 WHERE data_venda >= @Inicio) AS faturamento,
+                 WHERE data_v >= @Inicio) AS total_vendas,
+              (SELECT COALESCE(SUM(valor), 0) FROM venda
+                 WHERE data_v >= @Inicio) AS faturamento,
               (SELECT COUNT(*) FROM clientes
                  WHERE ativo = 1) AS total_clientes", conn);
         cmd.Parameters.AddWithValue("@Inicio", inicio);
@@ -36,12 +36,12 @@ public class DashboardRepository : IDashboardRepository
         using var conn = new MySqlConnection(_cs);
         conn.Open();
         using var cmd = new MySqlCommand(@"
-            SELECT DATE(data_venda) AS dia,
+            SELECT DATE(data_v) AS dia,
                    COUNT(*)         AS qtd,
-                   SUM(valor_total) AS total
+                   SUM(valor) AS total
             FROM venda
-            WHERE data_venda >= @Inicio
-            GROUP BY DATE(data_venda)
+            WHERE data_v >= @Inicio
+            GROUP BY DATE(data_v)
             ORDER BY dia", conn);
         cmd.Parameters.AddWithValue("@Inicio", inicio);
 
@@ -64,10 +64,10 @@ public class DashboardRepository : IDashboardRepository
         using var cmd = new MySqlCommand(@"
             SELECT p.id, p.nome,
                    SUM(v.quantidade)  AS qtd,
-                   SUM(v.valor_total) AS total
+                   SUM(v.valor) AS total
             FROM venda v
             JOIN produtos p ON p.id = v.produto_id
-            WHERE v.data_venda >= @Inicio
+            WHERE v.data_v >= @Inicio
             GROUP BY p.id, p.nome
             ORDER BY qtd DESC
             LIMIT @Limite", conn);
@@ -115,11 +115,11 @@ public class DashboardRepository : IDashboardRepository
         conn.Open();
         using var cmd = new MySqlCommand(@"
             SELECT v.id, c.nome AS cliente, p.nome AS produto,
-                   v.quantidade, v.valor_total, v.data_venda
+                   v.quantidade, v.valor, v.data_v
             FROM venda v
             JOIN clientes c ON c.id = v.cliente_id
             JOIN produtos p ON p.id = v.produto_id
-            ORDER BY v.data_venda DESC
+            ORDER BY v.data_v DESC
             LIMIT @Limite", conn);
         cmd.Parameters.AddWithValue("@Limite", limite);
 
@@ -131,8 +131,8 @@ public class DashboardRepository : IDashboardRepository
                 Cliente    = r["cliente"].ToString()!,
                 Produto    = r["produto"].ToString()!,
                 Quantidade = Convert.ToInt32(r["quantidade"]),
-                ValorTotal = Convert.ToDecimal(r["valor_total"]),
-                DataVenda  = Convert.ToDateTime(r["data_venda"])
+                ValorTotal = Convert.ToDecimal(r["valor"]),
+                DataVenda  = Convert.ToDateTime(r["data_v"])
             });
         return lista;
     }
