@@ -121,6 +121,13 @@ app.UseCors("FrontendPolicy");
 app.MapControllers();
 app.Run();
 
+// Adicionar junto com os outros services:
+builder.Services.AddScoped<IFotoService, FotoService>(); // ✨
+
+// NÃO é necessário UseStaticFiles()!
+// As imagens chegam ao frontend via JSON (base64),
+// não como arquivos servidos pela URL.
+
 
 //USE minha_api_db;
 //CREATE TABLE IF NOT EXISTS fornecedores (

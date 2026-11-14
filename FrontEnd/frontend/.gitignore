@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# No arquivo .gitignore da MinhaApi:
+uploads/produtos/*
+!uploads/produtos/.gitkeep
